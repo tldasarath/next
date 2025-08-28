@@ -6,7 +6,7 @@ import BackgroundEffects from '@/components/BackgroundEffects';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Your Cosmic Website',
+  title: 'Next Media',
   description: 'Experience the cosmic journey',
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} relative min-h-screen bg-black text-white overflow-x-hidden`}>
         <BackgroundEffects />
         <div className="relative z-10"> {/* This wraps Navbar and main content */}
-          <Navbar />
+        
           {children} {/* Your page content is injected here */}
         </div>
       </body>

@@ -7,6 +7,9 @@ const HeroSection = () => {
   // Text states
   const [showFirstText, setShowFirstText] = useState(true);
   const [showSecondText, setShowSecondText] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [stars, setStars] = useState([]);
+  const [shootingStars, setShootingStars] = useState([]);
 
   // Text animation effect
   useEffect(() => {
@@ -15,6 +18,32 @@ const HeroSection = () => {
       setShowSecondText(prev => !prev);
     }, 3500);
     return () => clearInterval(interval);
+  }, []);
+
+  // Generate stars and shooting stars only on client
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // Generate static stars
+    const generatedStars = Array.from({ length: 150 }, (_, i) => ({
+      id: i,
+      width: Math.random() * (i % 5 === 0 ? 4 : 3),
+      height: Math.random() * (i % 5 === 0 ? 4 : 3),
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      opacity: Math.random() * 0.8 + 0.2,
+      color: i % 5 === 0 ? 'bg-pink-300' : 'bg-white'
+    }));
+    setStars(generatedStars);
+    
+    // Generate shooting stars
+    const generatedShootingStars = Array.from({ length: 5 }, (_, i) => ({
+      id: i,
+      initialX: Math.random() * window.innerWidth,
+      initialY: Math.random() * window.innerHeight/2,
+      color: i % 2 === 0 ? 'bg-white' : 'bg-pink-300'
+    }));
+    setShootingStars(generatedShootingStars);
   }, []);
 
   // Enhanced text highlight with more glow
@@ -46,7 +75,7 @@ const HeroSection = () => {
   );
 
   return (  
-    <div className="relative w-full min-h-screen  overflow-hidden flex flex-col md:flex-row items-center justify-center lg:justify-between pt-20 lg:pt-0">
+    <div className="relative w-full min-h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center lg:justify-between pt-20 lg:pt-0">
       {/* Space background */}
       <div className="absolute inset-0 bg-[url('/images/space-bg.jpg')] bg-cover bg-center opacity-20"></div>
 
@@ -59,7 +88,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="text-white mt-16 text-2xl sm:text-4xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-white mt-16 text-6xl sm:text-4xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
             >
               <motion.p
                 initial={{ x: -20 }}
@@ -90,7 +119,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="text-white mt-16 text-2xl sm:text-4xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-white mt-16 text-6xl sm:text-5xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
             >
               <motion.p
                 initial={{ x: -20 }}
@@ -141,7 +170,7 @@ const HeroSection = () => {
 
       {/* Floating planet animation - positioned below text on mobile */}
       <motion.div
-        className="relative lg:absolute z-10 w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] mx-auto my-8 lg:my-0 right-16 lg:right-16 xl:right-24 2xl:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer order-2 lg:order-none"
+        className="relative lg:absolute z-10 w-[600px] h-[550px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] mx-auto my-8 lg:my-0 right-16 lg:right-16 xl:right-24 2xl:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer order-2 lg:order-none"
         initial={{ opacity: 0, y: 100 }}
         animate={{ 
           opacity: 1,
@@ -218,19 +247,19 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Shooting stars */}
-      {[...Array(5)].map((_, i) => (
+      {/* Shooting stars - only render on client */}
+      {isMounted && shootingStars.map((star) => (
         <motion.div
-          key={`star-${i}`}
-          className={`absolute top-0 left-0 w-1 h-1 rounded-full ${i % 2 === 0 ? 'bg-white' : 'bg-pink-300'}`}
+          key={`shooting-star-${star.id}`}
+          className={`absolute top-0 left-0 w-1 h-1 rounded-full ${star.color}`}
           initial={{
-            x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0,
-            y: typeof window !== 'undefined' ? Math.random() * window.innerHeight/2 : 0,
+            x: star.initialX,
+            y: star.initialY,
             opacity: 0
           }}
           animate={{
-            x: typeof window !== 'undefined' ? window.innerWidth + 100 : 0,
-            y: typeof window !== 'undefined' ? window.innerHeight + 100 : 0,
+            x: window.innerWidth + 100,
+            y: window.innerHeight + 100,
             opacity: [0, 0.8, 0],
           }}
           transition={{
@@ -244,16 +273,16 @@ const HeroSection = () => {
       ))}
 
       {/* Static stars */}
-      {[...Array(150)].map((_, i) => (
+      {stars.map((star) => (
         <div
-          key={`star-${i}`}
-          className={`absolute rounded-full ${i % 5 === 0 ? 'bg-pink-300' : 'bg-white'}`}
+          key={`static-star-${star.id}`}
+          className={`absolute rounded-full ${star.color}`}
           style={{
-            width: Math.random() * (i % 5 === 0 ? 4 : 3),
-            height: Math.random() * (i % 5 === 0 ? 4 : 3),
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            opacity: Math.random() * 0.8 + 0.2,
+            width: `${star.width}px`,
+            height: `${star.height}px`,
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            opacity: star.opacity,
           }}
         />
       ))}

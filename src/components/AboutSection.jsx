@@ -157,7 +157,7 @@ const AboutSection = () => {
   return (
     <section
       ref={ref}
-      className="relative py-28 px-8 lg:px-32 xl:px-32 2xl:px-32 w-full text-white overflow-hidden mt-20"
+      className="relative py-28 px-8 lg:px-20 xl:px-32 2xl:px-32 w-full text-white overflow-hidden xl:mt-20"
     >
       {/* Right Side Background Image */}
       <motion.div
@@ -179,7 +179,7 @@ const AboutSection = () => {
           <img
             src="/images/lines.png"
             alt="Background"
-            className="w-full h-full object-cover brightness-125"
+            className="w-full h-full object-cover brightness-125 hidden xl:block"
             style={{
               filter: 'hue-rotate(15deg) saturate(1.5)',
               transform: 'scale(1.1)'
@@ -198,7 +198,7 @@ const AboutSection = () => {
         <motion.h2
           variants={slideInVariants}
           transition={{ delay: 0.2 }}
-          className="text-xl custom-text2 md:text-6xl font-bold mb-16 absolute md:left-8 lg:left-0 xl:left-32 2xl:left-11"
+          className="text-3xl custom-text2 md:text-6xl font-bold mb-16 absolute md:left-8 lg:left-0 xl:left-5 2xl:left-4"
           style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
         >
           Welcome To <HighlightWord>Next</HighlightWord> Digital
@@ -214,7 +214,7 @@ const AboutSection = () => {
           className="mb-16 w-full max-w-4xl ml-auto"
         >
           <motion.div variants={fadeInVariants}>
-            <div className="space-y-8 text-md md:text-xl lg:pt-16">
+            <div className="space-y-8 text-lg  xl:pr-12 lg:pt-16">
               <motion.p
                 variants={fadeInVariants}
                 initial="hidden"
@@ -253,7 +253,8 @@ const AboutSection = () => {
           </motion.div>
         </motion.div>
 
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Increased gap between cards from gap-8 to gap-16 */}
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div
             variants={slideInVariants}
             initial="hidden"

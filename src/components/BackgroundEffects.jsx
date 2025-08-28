@@ -1,9 +1,9 @@
-// components/BackgroundEffects.js
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, animate } from 'framer-motion';
 
 export default function BackgroundEffects() {
+  const [isMounted, setIsMounted] = useState(false);
   const bigX = useMotionValue(0);
   const bigY = useMotionValue(0);
   const medium1X = useMotionValue(0);
@@ -15,9 +15,10 @@ export default function BackgroundEffects() {
   const medium1Size = useMotionValue(700);
   const medium2Size = useMotionValue(700);
 
-  const animateCircle = (x, y, size, index) => {
-    if (typeof window === 'undefined') return;
+  // Generate stars on client-side only
+  const [stars, setStars] = useState([]);
 
+  const animateCircle = (x, y, size, index) => {
     const duration = 4 + Math.random() * 3;
     const targetX = Math.random() * (window.innerWidth - size.get());
     const targetY = Math.random() * (window.innerHeight - size.get());
@@ -42,8 +43,21 @@ export default function BackgroundEffects() {
   };
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    setIsMounted(true);
+    
+    // Generate stars only on client
+    const generatedStars = Array.from({ length: 150 }, (_, i) => ({
+      id: i,
+      width: Math.random() * 4,
+      height: Math.random() * 4,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      opacity: Math.random() * 0.8 + 0.2,
+      color: i % 5 === 0 ? 'bg-pink-300' : 'bg-white'
+    }));
+    setStars(generatedStars);
 
+    // Initialize circle positions
     bigX.set(window.innerWidth * 0.2);
     bigY.set(window.innerHeight / 2);
     medium1X.set(window.innerWidth * 0.7);
@@ -71,6 +85,15 @@ export default function BackgroundEffects() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Don't render anything during SSR
+  if (!isMounted) {
+    return (
+      <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 bg-[url('/images/space-bg.jpg')] bg-cover bg-center opacity-20" />
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -112,16 +135,16 @@ export default function BackgroundEffects() {
         />
       </div>
 
-      {[...Array(150)].map((_, i) => (
+      {stars.map((star) => (
         <div
-          key={`star-${i}`}
-          className={`absolute rounded-full ${i % 5 === 0 ? 'bg-pink-300' : 'bg-white'}`}
+          key={`star-${star.id}`}
+          className={`absolute rounded-full ${star.color}`}
           style={{
-            width: `${Math.random() * 4}px`,
-            height: `${Math.random() * 4}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            opacity: Math.random() * 0.8 + 0.2,
+            width: `${star.width}px`,
+            height: `${star.height}px`,
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            opacity: star.opacity,
           }}
         />
       ))}

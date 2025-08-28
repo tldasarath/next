@@ -6,11 +6,36 @@ import { useState } from 'react';
 
 const ImageTextSection = () => {
   const [isHovering, setIsHovering] = useState(false);
-
+ const HighlightWord = ({ children }) => (
+    <span className="relative inline-block">
+      <span
+        className="text-transparent"
+        style={{
+          WebkitTextStroke: '0.5px #fff',
+        }}
+      >
+        {children}
+      </span>
+      <span className="absolute inset-0 flex items-center justify-center">
+        <motion.span
+          className="block w-2 h-2 rounded-full bg-white"
+          animate={{
+            scale: [1, 1.8, 1],
+            opacity: [0.8, 0.2, 0.8],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </span>
+    </span>
+  );
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto">
-        <div className="flex flex-col justify-self-center w-7/8 lg:flex-row items-center gap-8 lg:gap-32"> {/* Reduced gap at 1024px */}
+        <div className="flex flex-col justify-self-center w-7/8 lg:flex-row items-center gap-0 lg:gap-32"> {/* Reduced gap at 1024px */}
           {/* Left side - Bigger Image at 1024px */}
           <motion.div 
             className="w-full lg:w-3/5 xl:w-2/5 -ml-0 flex justify-center" // Increased width at lg, normal at xl
@@ -65,10 +90,10 @@ const ImageTextSection = () => {
             viewport={{ once: true }}
           >
             <div className="space-y-6 lg:space-y-12 xl:space-y-96 flex justify-end lg:pl-8 xl:pl-20"> {/* Reduced spacing at lg */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white leading-tight text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl lg:text-2xl xl:text-7xl font-bold text-white leading-tight text-center lg:text-left">
                 <span className="block">your strategic</span>
                 <span className="block">partner in driving</span>
-                <span className="block">brand growth &</span>
+                <span className="block"><HighlightWord>brand growth</HighlightWord> &</span>
                 <span className="block">market success.</span>
               </h2> 
             </div>

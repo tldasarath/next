@@ -13,7 +13,7 @@ const services = [
       "UX/UI Design",
       "Website Maintenance & Support"
     ],
-    icon: "💻",
+    logo: "/logos/services/web-design.png",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const services = [
       "Social Media Reels",
       "Podcast Shoot"
     ],
-    icon: "🎥",
+    logo: "/logos/services/video.png",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const services = [
       "Logo Design & Visual Identity",
       "Brand Guidelines & Messaging"
     ],
-    icon: "🖌️",
+    logo: "/logos/services/branding.png",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const services = [
       "Personal Photoshoot",
       "Wedding Photography"
     ],
-    icon: "📸",
+    logo: "/logos/services/photo-camera.png",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const services = [
       "Community Engagement",
       "Social Media Advertising"
     ],
-    icon: "📱",
+    logo: "/logos/services/social-media.png",
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const services = [
       "Graphic Design & Visual Content",
       "Video Production & Editing"
     ],
-    icon: "✍️",
+    logo: "/logos/services/content-marketing.png",
   },
 ];
 
@@ -251,7 +251,7 @@ const ServiceSection = () => {
                   key={service.id}
                   className={`absolute ${isMobile ? 'w-72' : isLgScreen ? 'w-96' : 'w-80'} h-[26rem] md:h-[28rem] p-6 md:p-8 rounded-3xl shadow-2xl cursor-pointer ${
                     position === 'center' 
-                      ? 'bg-gradient-to-br from-purple-600 to-pink-600' 
+                      ? 'bg-black/60' 
                       : 'bg-gray-800/90 backdrop-blur-sm'
                   }`}
                   style={{ 
@@ -265,9 +265,13 @@ const ServiceSection = () => {
                   onClick={() => selectCard(service.id)}
                   whileHover={!isMobile ? { scale: position === 'center' ? 1.05 : 1.02 } : {}}
                 >
-                  <div className="flex flex-col items-center h-full">
-                    <div className={`text-6xl md:text-7xl mb-4 md:mb-6 ${position === 'center' ? 'text-white' : 'text-gray-400'}`}>
-                      {service.icon}
+                  <div className="flex flex-col items-center justify-center h-full">
+                    <div className={`w-16 h-16 md:w-20 md:h-20 mb-4 md:mb-6 flex items-center justify-center ${position === 'center' ? 'text-white' : 'text-gray-400'}`}>
+                      <img 
+                        src={service.logo} 
+                        alt={service.title}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <h3 className={`text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center ${
                       position === 'center' ? 'text-white' : 'text-gray-300'
