@@ -86,10 +86,10 @@ const ServiceSection = () => {
       setIsMobile(width < 1024); // lg breakpoint
       setIsLgScreen(width >= 1280); // xl breakpoint for extra large spacing
     };
-    
+
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
-    
+
     return () => {
       window.removeEventListener('resize', checkScreenSize);
     };
@@ -129,23 +129,23 @@ const ServiceSection = () => {
       // Mobile: only show the active card
       return index === activeIndex ? 'center' : 'hidden';
     }
-    
+
     // Desktop: show exactly 3 cards (left, center, right)
     const activeServiceIndex = services.findIndex(s => s.id === activeIndex);
     const serviceIndex = services.findIndex(s => s.id === index);
-    
+
     // Calculate the relative position in a circular manner
     let relativePos = serviceIndex - activeServiceIndex;
-    
+
     // Handle circular wrapping
-    if (relativePos < -services.length/2) relativePos += services.length;
-    if (relativePos > services.length/2) relativePos -= services.length;
-    
+    if (relativePos < -services.length / 2) relativePos += services.length;
+    if (relativePos > services.length / 2) relativePos -= services.length;
+
     // Only show the center card and its immediate neighbors
     if (relativePos === 0) return 'center';
-    if (relativePos === -1 || relativePos === services.length-1) return 'left';
-    if (relativePos === 1 || relativePos === -services.length+1) return 'right';
-    
+    if (relativePos === -1 || relativePos === services.length - 1) return 'left';
+    if (relativePos === 1 || relativePos === -services.length + 1) return 'right';
+
     return 'hidden';
   };
 
@@ -188,7 +188,7 @@ const ServiceSection = () => {
         }
       };
     }
-    
+
     // For regular desktop screens (1024px to 1279px), use smaller spacing
     return {
       left: {
@@ -227,9 +227,9 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <motion.h2 
+    <section className="py-16 container-custom">
+  <div className="w-full ">
+        <motion.h2
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -245,17 +245,17 @@ const ServiceSection = () => {
             {services.map((service) => {
               const position = getCardPosition(service.id);
               if (position === 'hidden') return null;
-              
+
               return (
                 <motion.div
                   key={service.id}
-                  className={`absolute ${isMobile ? 'w-72' : isLgScreen ? 'w-96' : 'w-80'} h-[26rem] md:h-[28rem] p-6 md:p-8 rounded-3xl shadow-2xl cursor-pointer ${
-                    position === 'center' 
-                      ? 'bg-black/60' 
+                  className={`absolute ${isMobile ? 'w-72' : isLgScreen ? 'w-96' : 'w-80'} h-[26rem] md:h-[28rem] p-6 md:p-8 rounded-3xl shadow-2xl cursor-pointer ${position === 'center'
+                      ? 'bg-black/60'
                       : 'bg-gray-800/90 backdrop-blur-sm'
-                  }`}
-                  style={{ 
-                    originX: 0.5, 
+                    } [@media(min-width:1440px)_and_(max-width:1535px)]:w-72 [@media(min-width:1024px)_and_(max-width:1200px)]:w-72`}
+
+                  style={{
+                    originX: 0.5,
                     originY: 0.5,
                   }}
                   variants={getCardVariants()}
@@ -267,22 +267,21 @@ const ServiceSection = () => {
                 >
                   <div className="flex flex-col items-center justify-center h-full">
                     <div className={`w-16 h-16 md:w-20 md:h-20 mb-4 md:mb-6 flex items-center justify-center ${position === 'center' ? 'text-white' : 'text-gray-400'}`}>
-                      <img 
-                        src={service.logo} 
+                      <img
+                        src={service.logo}
                         alt={service.title}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-contain mb-11"
                       />
                     </div>
-                    <h3 className={`text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center ${
-                      position === 'center' ? 'text-white' : 'text-gray-300'
-                    }`}>
+                    <h3 className={`text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center ${position === 'center' ? 'text-white' : 'text-gray-300'
+                      }`}>
                       {service.title}
                     </h3>
-                    
+
                     <ul className="w-full space-y-2 md:space-y-3 px-2 md:px-4">
                       {service.services.map((item, i) => (
-                        <li 
-                          key={i} 
+                        <li
+                          key={i}
                           className={`text-sm md:text-md ${position === 'center' ? 'text-white' : 'text-gray-400'}`}
                         >
                           <div className="flex items-start">
@@ -305,11 +304,10 @@ const ServiceSection = () => {
             <button
               key={service.id}
               onClick={() => selectCard(service.id)}
-              className={`rounded-full transition-all ${
-                service.id === activeIndex 
-                  ? 'bg-pink-500 w-6 h-3' 
+              className={`rounded-full transition-all ${service.id === activeIndex
+                  ? 'bg-pink-500 w-6 h-3'
                   : 'bg-gray-600 w-3 h-3 hover:bg-gray-500'
-              }`}
+                }`}
               aria-label={`Go to ${service.title}`}
             />
           ))}

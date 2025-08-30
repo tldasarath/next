@@ -48,7 +48,7 @@ const HeroSection = () => {
 
   // Enhanced text highlight with more glow
   const HighlightWord = ({ children }) => (
-    <span className="relative inline-block">
+    <span className=" inline-block">
       <span 
         className="text-transparent"
         style={{
@@ -75,34 +75,34 @@ const HeroSection = () => {
   );
 
   return (  
-    <div className="relative w-full min-h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center lg:justify-between pt-20 lg:pt-0">
+    <div className="relative w-full min-h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center lg:justify-between container-custom pt-20 lg:pt-0 ">
       {/* Space background */}
       <div className="absolute inset-0 bg-[url('/images/space-bg.jpg')] bg-cover bg-center opacity-20"></div>
 
       {/* Text content - positioned first for mobile */}
-      <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 2xl:px-36 lg:mt-0 order-1 lg:order-none">
-        <div className="max-w-3xl mx-auto lg:mx-0">
+<div className="relative z-10 w-full  lg:mt-0 order-1 lg:order-none ">
+        <div className="xl:max-w-4xl lg:max-w-3xl mx-auto lg:mx-0  ">
           {showFirstText && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="text-white mt-16 text-6xl sm:text-4xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-white mt-16 text-6xl xl:text-7xl sm:text-4xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
             >
               <motion.p
                 initial={{ x: -20 }}
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Engage your audience. 
+                Engage your 
               </motion.p>
               <motion.p
                 initial={{ x: -20 }}
                 animate={{ x: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <HighlightWord>Ignite</HighlightWord>
+                <HighlightWord>audience.</HighlightWord> Ignite
               </motion.p>
               <motion.p
                 initial={{ x: -20 }}
@@ -119,7 +119,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="text-white mt-16 text-6xl sm:text-5xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-white mt-16 text-6xl sm:text-5xl md:text-4xl lg:text-7xl xl:text-7xl font-bold mb-6 leading-tight"
             >
               <motion.p
                 initial={{ x: -20 }}
@@ -145,7 +145,7 @@ const HeroSection = () => {
             </motion.div>
           )}
           <motion.button 
-            className="lg:flex items-center mx-auto lg:mx-0 border border-white text-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 px-4 py-2 sm:px-6 sm:py-3 rounded-full text-base sm:text-lg font-medium w-fit transition-all group"
+            className="lg:flex items-center mx-auto lg:mx-4 border border-white text-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 px-4  py-2 sm:px-6 sm:py-3 rounded-full text-base sm:text-lg font-medium w-fit transition-all group"
             whileHover={{ 
               scale: 1.05,
               boxShadow: '0 0 15px rgba(236, 72, 153, 0.5)'
@@ -170,7 +170,7 @@ const HeroSection = () => {
 
       {/* Floating planet animation - positioned below text on mobile */}
       <motion.div
-        className="relative lg:absolute z-10 w-[600px] h-[550px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] mx-auto my-8 lg:my-0 right-16 lg:right-16 xl:right-24 2xl:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer order-2 lg:order-none"
+        className="relative  lg:absolute z-10 w-[600px] h-[550px] sm:w-[450px] sm:h-[450px] md:w-[750px] md:h-[750px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] mx-auto my-8 lg:my-0 right-50 md:right-10 lg:right-0 xl:right-0 2xl:right-56 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer order-2 lg:order-none"
         initial={{ opacity: 0, y: 100 }}
         animate={{ 
           opacity: 1,

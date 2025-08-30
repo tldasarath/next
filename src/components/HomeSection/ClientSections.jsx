@@ -15,53 +15,42 @@ const ClientSections = () => {
     { id: 8, name: 'Spotify', logo: '/images/our-clients/wide-range.jpg' },
   ];
 
-  // Duplicate clients for seamless animation
   const duplicatedClients = [...clients, ...clients];
-  
-  // State to track if component is mounted (for SSR compatibility)
-  const [isMounted, setIsMounted] = useState(false);
+
   const [itemWidth, setItemWidth] = useState(250); // Default width for desktop
-  
+
   useEffect(() => {
-    setIsMounted(true);
-    
-    // Function to handle responsive adjustments
     const handleResize = () => {
       if (typeof window !== 'undefined') {
         if (window.innerWidth < 640) {
-          setItemWidth(150); // Mobile
+          setItemWidth(150);
         } else if (window.innerWidth < 768) {
-          setItemWidth(180); // Small tablet
+          setItemWidth(180);
         } else if (window.innerWidth < 1024) {
-          setItemWidth(200); // Tablet
+          setItemWidth(200);
         } else {
-          setItemWidth(250); // Desktop
+          setItemWidth(250);
         }
       }
     };
-    
-    // Set initial value
+
     handleResize();
-    
-    // Add event listener
     window.addEventListener('resize', handleResize);
-    
-    // Clean up
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <section className="py-8 md:py-12 lg:py-16 px-4 overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-16 overflow-hidden container-custom">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-10 lg:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our Happy Clients</h2>
         </div>
-        
+
         {/* First Carousel (Right to Left) */}
         <div className="relative w-full overflow-hidden mb-8 md:mb-10 lg:mb-12">
           <div className="infinite-scroll flex">
             {duplicatedClients.map((client, index) => (
-              <div 
+              <div
                 key={`first-${client.id}-${index}`}
                 className="flex-shrink-0 px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8"
                 style={{ width: `${itemWidth}px` }}
@@ -85,7 +74,7 @@ const ClientSections = () => {
         <div className="relative w-full overflow-hidden">
           <div className="infinite-scroll-reverse flex">
             {duplicatedClients.map((client, index) => (
-              <div 
+              <div
                 key={`second-${client.id}-${index}`}
                 className="flex-shrink-0 px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8"
                 style={{ width: `${itemWidth}px` }}
@@ -108,41 +97,30 @@ const ClientSections = () => {
 
       <style jsx>{`
         @keyframes infiniteScroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-        
         @keyframes infiniteScrollReverse {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
         }
-        
+
         .infinite-scroll {
           animation: infiniteScroll 30s linear infinite;
           display: flex;
-          width: ${clients.length * itemWidth * 2}px; // Double width for duplicated items
+          width: ${clients.length * itemWidth * 2}px;
         }
-        
         .infinite-scroll-reverse {
           animation: infiniteScrollReverse 30s linear infinite;
           display: flex;
-          width: ${clients.length * itemWidth * 2}px; // Double width for duplicated items
+          width: ${clients.length * itemWidth * 2}px;
         }
-        
+
         .infinite-scroll:hover,
         .infinite-scroll-reverse:hover {
           animation-play-state: paused;
         }
 
-        /* Adjust animation speed for smaller screens */
         @media (max-width: 640px) {
           .infinite-scroll,
           .infinite-scroll-reverse {

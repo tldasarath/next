@@ -16,15 +16,14 @@ const teamMembers = [
 
 export default function AboutUs() {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 pt-32 md:pt-24 lg:pt-36">
-      <div className="xl:max-w-[1800px] lg:max-w-4xl md:max-w-2xl mx-auto [@media(min-width:1440px)_and_(max-width:1535px)]:max-w-[1200px]">
+    <section className="py-12 container-custom pt-32 md:pt-24 lg:pt-36">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold sm:text-5xl md:pt-6 lg:pt-0">About Us</h2>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-12 text-start ">
           {/* About Section */}
-          <div className="flex flex-col lg:flex-row-reverse items-stretch min-h-[24rem] w-full xl:w-[95%] 2xl:w-[90%] mx-auto hover:shadow-3xl rounded-2xl overflow-hidden transition-all duration-300">
+          <div className="flex flex-col lg:flex-row-reverse items-stretch min-h-[24rem] w-full xl:w-[100%] 2xl:w-[100%] mx-auto hover:shadow-3xl rounded-2xl overflow-hidden transition-all duration-300">
             {/* Image Section */}
             <div className="w-full lg:w-1/2 h-72 md:h-96 relative">
               <div className="relative group h-full w-full">
@@ -41,7 +40,7 @@ export default function AboutUs() {
             </div>
 
             {/* Content Section */}
-            <div className="w-full lg:w-1/2 p-5 md:p-6 flex flex-col justify-center">
+            <div className="w-full lg:w-1/2 py-5 xl:pr-4 md:py-6 flex flex-col justify-start">
               <div className="max-w-2xl mx-auto lg:mx-0">
                 <h3 className="text-2xl font-bold mb-1">About Us</h3>
                 <p className="mb-3 text-md xl:text-base">
@@ -68,7 +67,7 @@ export default function AboutUs() {
           </div>
 
           {/* Mission & Vision Section */}
-          <div className="flex flex-col lg:flex-row gap-6 items-stretch min-h-[24rem] w-full xl:w-[95%] 2xl:w-[90%] mx-auto hover:shadow-3xl rounded-2xl overflow-hidden transition-all duration-300">
+          <div className="flex flex-col lg:flex-row gap-6 items-stretch min-h-[24rem] w-full xl:w-[100%] 2xl:w-[100%] mx-auto hover:shadow-3xl rounded-2xl overflow-hidden transition-all duration-300">
             {/* Image Section */}
             <div className="w-full lg:w-1/2 h-72 md:h-96 relative ">
               <div className="relative group h-full w-full">
@@ -109,7 +108,7 @@ export default function AboutUs() {
         {/* Team Section */}
         <div className="mt-20 text-center">
           <h2 className="text-3xl font-bold mb-10">Our Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-8xl xl:gap-y-8 xl:gap-0 mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-8xl xl:gap-y-8 2xl:gap-x-36 xl:gap-0 mx-auto">
             {teamMembers.map((member) => (
               <div key={member.id} className="flex flex-col items-center group">
                 <div className="relative h-72 w-64 mx-auto mb-4 rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
@@ -129,7 +128,7 @@ export default function AboutUs() {
             ))}
           </div>
         </div>
-      </div>
+      
     </section>
   );
 }

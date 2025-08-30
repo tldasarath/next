@@ -11,9 +11,9 @@ export default function BackgroundEffects() {
   const medium2X = useMotionValue(0);
   const medium2Y = useMotionValue(0);
 
-  const bigSize = useMotionValue(900);
-  const medium1Size = useMotionValue(700);
-  const medium2Size = useMotionValue(700);
+  const bigSize = useMotionValue(700);
+  const medium1Size = useMotionValue(600);
+  const medium2Size = useMotionValue(600);
 
   // Generate stars on client-side only
   const [stars, setStars] = useState([]);
@@ -34,7 +34,7 @@ export default function BackgroundEffects() {
       ease: "easeInOut" 
     });
 
-    animate(size, 700 + Math.random() * 500, {
+    animate(size, 400 + Math.random() * 100, {
       duration: 15,
       ease: "easeInOut",
       repeat: Infinity,

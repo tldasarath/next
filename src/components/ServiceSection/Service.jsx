@@ -8,7 +8,7 @@ export default function ServicesSection() {
         {
             id: 1,
             title: "WEB DESIGN & DEVELOPMENT",
-            description: "We create responsive, modern websites that work seamlessly across all devices. Our web development services include front-end and back-end development using the latest technologies.",
+            description: "We create modern, responsive, and user-friendly websites tailored to your business needs. From corporate and e-commerce sites to landing pages and microsites, our web solutions focus on functionality, design excellence, and seamless user experience.",
             image: "/images/services/web-design.jpg",
             points: ["Custom Website Design",
                 "E-Commerce Solutions",
@@ -29,7 +29,7 @@ export default function ServicesSection() {
         {
             id: 3,
             title: "BRANDING & IDENTITY",
-            description: "We design beautiful and functional user interfaces that enhance user engagement. Our process includes user research, wireframing, prototyping, and testing.",
+            description: "We craft memorable brand identities that reflect your values and vision. From logos and naming to complete brand strategies, guidelines, and visual elements like taglines, colors, and typography — we help you build a brand that truly stands out.",
             image: "/images/services/branding-idendity.jpg",
             points: ["Brand Strategy & Positioning",
                 "Logo Design & Visual Identity",
@@ -48,7 +48,7 @@ export default function ServicesSection() {
         {
             id: 5,
             title: "SOCIAL MEDIA MARKETING",
-            description: "We provide cloud migration, deployment, and management services. Our experts help businesses leverage cloud technologies for scalability and efficiency.",
+            description: "Boost your online presence with our end-to-end digital marketing solutions. We manage social media, run targeted Google Ads, optimize websites for SEO, and execute data-driven email campaigns — ensuring visibility, engagement, and conversions.",
             image: "/images/services/social-media-marketing-concept-marketing.jpg",
             points: ["Content Planning & Creation",
                 "Account Management",
@@ -58,7 +58,7 @@ export default function ServicesSection() {
         {
             id: 6,
             title: "CONTENT MARKETING",
-            description: "We build robust e-commerce platforms that drive sales and provide seamless shopping experiences. Our solutions include payment integration, inventory management, and analytics.",
+            description: "Our creative team delivers powerful designs that speak louder than words. Whether it’s brochures, flyers, business cards, company profiles, pitch decks, banners, or corporate stationery, we design to impress across print and digital platforms.",
             image: "/images/services/content-marketing.jpg",
             points: ["Blog & Article Writing",
                 "Graphic Design & Visual Content",
@@ -67,8 +67,9 @@ export default function ServicesSection() {
     ];
 
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 pt-36 md:pt-28 lg:pt-44">
-<div className="mx-auto max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-[1700px] [@media(min-width:1440px)_and_(max-width:1535px)]:max-w-[1200px]">
+        <section className=" pt-36 md:pt-28 lg:pt-44 container-custom">
+            <div className="w-full">
+
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-extrabold sm:text-5xl">
                         Our Services
@@ -79,8 +80,8 @@ export default function ServicesSection() {
                     {services.map((service, index) => (
                         <div
                             key={service.id}
-                            className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-11 items-stretch min-h-[28rem] w-full xl:w-[95%] 2xl:w-[90%] mx-auto hover:shadow-3xl rounded-2xl overflow-hidden transition-all duration-300 bg-stone-50/10`}
-                        style={{ boxShadow: "0 25px 70px rgba(0,0,0,0.5)" }}
+                            className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-11 items-stretch min-h-[28rem] w-full xl:w-[100%] 2xl:w-[100%] mx-auto hover:shadow-3xl rounded-2xl overflow-hidden transition-all duration-300 bg-stone-50/10`}
+                            style={{ boxShadow: "0 25px 70px rgba(0,0,0,0.5)" }}
                         >
                             {/* Image Section */}
                             <div className="w-full lg:w-1/2">

@@ -156,9 +156,10 @@ const AboutSection = () => {
 
   return (
     <section
-      ref={ref}
-      className="relative py-28 px-8 lg:px-20 xl:px-32 2xl:px-32 w-full text-white overflow-hidden xl:mt-20"
-    >
+  ref={ref}
+  className="relative py-28 container-custom w-full text-white overflow-hidden xl:mt-20"
+>
+
       {/* Right Side Background Image */}
       <motion.div
         variants={bgVariants}
@@ -198,23 +199,23 @@ const AboutSection = () => {
         <motion.h2
           variants={slideInVariants}
           transition={{ delay: 0.2 }}
-          className="text-3xl custom-text2 md:text-6xl font-bold mb-16 absolute md:left-8 lg:left-0 xl:left-5 2xl:left-4"
+          className="text-3xl flex  custom-text2 md:text-6xl font-bold mb-16 absolute md:left-0 lg:left-6 xl:left-0 2xl:left-0"
           style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
         >
           Welcome To <HighlightWord>Next</HighlightWord> Digital
         </motion.h2>
       </motion.div>
 
-      <div className="relative w-full mx-auto flex flex-col pt-24">
+      <div className="relative   w-full mx-auto flex flex-col pt-24">
         <motion.div
           variants={slideInRightVariants}
           initial="hidden"
           animate={contentControls}
           exit="hidden"
-          className="mb-16 w-full max-w-4xl ml-auto"
+          className="mb-16 w-full max-w-5xl lg:pr-32 ml-auto"
         >
           <motion.div variants={fadeInVariants}>
-            <div className="space-y-8 text-lg  xl:pr-12 lg:pt-16">
+            <div className="space-y-8 text-lg lg:pl-7 xl:pr- xl:pl-0 lg:pt-16 xl:p">
               <motion.p
                 variants={fadeInVariants}
                 initial="hidden"
@@ -254,14 +255,14 @@ const AboutSection = () => {
         </motion.div>
 
         {/* Increased gap between cards from gap-8 to gap-16 */}
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="w-full max-w-6xl 2xl:max-w-6xl xl:max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-48 xl:gap-10 2xl:gap-48">
           <motion.div
             variants={slideInVariants}
             initial="hidden"
             animate={cardControls}
             exit="hidden"
             transition={{ delay: 1.8 }} // Adjusted delay
-            className="md:p-10 p-5 rounded-2xl bg-gray-900/80 border-b-4 border-purple-500 shadow-2xl h-full backdrop-blur-md min-h-[450px] w-full"
+            className="md:p-10 xl:p-7 p-5 rounded-2xl bg-gray-900/80 border-b-4 border-purple-500 shadow-2xl h-full backdrop-blur-md min-h-[450px] w-full"
             style={{
               boxShadow: '0 20px 40px -10px rgba(126, 34, 206, 0.3)'
             }}

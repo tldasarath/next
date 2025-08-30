@@ -58,10 +58,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full h-24 z-40 bg-black">
-        <div className="h-full w-full mx-auto px-8 flex items-center justify-between">
+      <nav className="fixed w-full h-24 container-custom z-40 bg-black">
+        <div className="h-full w-full  flex items-center justify-between">
           {/* Logo - forced to left */}
-          <div className="flex-shrink-0  lg:ml-28 navbar-logo">
+          <div className="flex-shrink-0   ">
             <Link href="/">
               <Image
                 src="/logos/logo1.png"
@@ -75,14 +75,14 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation - hidden on mobile */}
-          <div className="hidden md:flex lg:space-x-16 md:space-x-8 md:text-sm  lg:text-base mx-4 flex-grow justify-center navbar-custom">
+          <div className="hidden md:flex xl:space-x-24 lg:space-x-12  md:space-x-8 md:text-sm  lg:text-base mx-4 flex-grow justify-center navbar-custom">
             <Link
               href="/"
               className={`${isHomePage ? 'text-transparent bg-clip-text bg-gradient-to-b from-[#F53A7A] to-[#190CD2]' : 'text-white'} hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300`}
             >
               Home
             </Link>
-            <Link href="aboutus" 
+            <Link href="/aboutus" 
               className={`${isAboutUsPage ? 'text-transparent bg-clip-text bg-gradient-to-b from-[#F53A7A] to-[#190CD2]' : 'text-white'} hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300`}
              > About Us
             </Link>
@@ -90,9 +90,9 @@ const Navbar = () => {
               className={`${isServicePage ? 'text-transparent bg-clip-text bg-gradient-to-b from-[#F53A7A] to-[#190CD2]' : 'text-white'} hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300`}
             > Services
             </Link>
-            <Link href="#" className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300">
+            {/* <Link href="#" className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300">
               Clients
-            </Link>
+            </Link> */}
             <Link href="#" className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300">
               Projects
             </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
           </div>
 
           {/* Menu button - forced to right */}
-          <div className="flex-shrink-0 lg:mr-28 navbar-menu">
+          <div className="flex-shrink-0   ">
             <button
               onClick={toggleSidebar}
               type="button"
@@ -195,7 +195,7 @@ const Navbar = () => {
               </li>
               <li className="md:hidden">
                 <Link
-                  href="#"
+                  href="/aboutus"
                   className="block py-2 text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300"
                   onClick={toggleSidebar}
                 >

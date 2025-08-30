@@ -1,10 +1,10 @@
-import AboutSection from "@/components/AboutSection";
-import ClientSections from "@/components/ClientSections";
-import HeroSection from "@/components/HeroSection";
-import ImageTextSection from "@/components/ImageTextSection";
-import Navbar from "@/components/Navbar";
-import ServiceSection from "@/components/ServiceSection";
-import ValuesSection from "@/components/ValuesSection";
+import AboutSection from "@/components/HomeSection/AboutSection";
+import ClientSections from "@/components/HomeSection/ClientSections";
+import HeroSection from "@/components/HomeSection/HeroSection";
+import ImageTextSection from "@/components/HomeSection/ImageTextSection";
+import ServiceSection from "@/components/HomeSection/ServiceSection";
+import ValuesSection from "@/components/HomeSection/ValuesSection";
+import Navbar from "@/components/Navbar/Navbar";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <ServiceSection/>
       <ImageTextSection/>
       <ValuesSection/>
-      {/* <ClientSections/> */}
+      <ClientSections/>
     </main>
   );
 }
