@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const teamMembers = [
-  { id: 1, name: 'DASARATH', position: 'Strategic', image: '/images/about-us/person.png' },
-  { id: 2, name: 'SHAFI', position: 'Design', image: '/images/about-us/person.png' },
-  { id: 3, name: 'NATURAL', position: 'Development', image: '/images/about-us/person.png' },
-  { id: 4, name: 'NAZMAL', position: 'Marketing', image: '/images/about-us/person.png' },
-  { id: 5, name: 'ARJUN', position: 'Management', image: '/images/about-us/person.png' },
-  { id: 6, name: 'SARAH', position: 'Content', image: '/images/about-us/person.png' },
-  { id: 7, name: 'MICHAEL', position: 'SEO', image: '/images/about-us/person.png' },
+  { id: 1, name: 'SHAFI', position: 'UI/UX', image: '/images/about-us/person.png' },
+  { id: 2, name: 'SARFAS', position: 'Graphic Designer', image: '/images/about-us/person.png' },
+  { id: 6, name: 'DIYA', position: 'Graphic Designer', image: '/images/about-us/person.png' },
+  { id: 3, name: 'DASARATH', position: 'Fullstack Developer', image: '/images/about-us/person.png' },
+  { id: 5, name: 'ARJUN', position: 'Fullstack Developer', image: '/images/about-us/person.png' },
+  { id: 4, name: 'NAZMAL', position: 'Digital Marketing', image: '/images/about-us/person.png' },
+  { id: 7, name: 'DIYA KRISHNA', position: 'Digital Marketing', image: '/images/about-us/person.png' },
   { id: 8, name: 'EMMA', position: 'Social Media', image: '/images/about-us/person.png' }
 ];
 

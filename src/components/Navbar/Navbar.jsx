@@ -238,7 +238,7 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/values"
                   className="block py-2 text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#F53A7A] hover:to-[#190CD2] transition-all duration-300"
@@ -246,7 +246,7 @@ const Navbar = () => {
                 >
                   Our Values
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/gallery"

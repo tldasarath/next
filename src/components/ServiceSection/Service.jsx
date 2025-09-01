@@ -18,7 +18,7 @@ export default function ServicesSection() {
         {
             id: 2,
             title: "VIDEOGRAPHY SERVICES ",
-            description: "Our team builds native and cross-platform mobile applications for iOS and Android. We focus on creating intuitive user experiences with smooth performance.",
+            description: " Bring your story to life through dynamic visuals. We produce professional promo videos, interviews, reels, and event highlights with high-quality editing, motion graphics, and storytelling that leaves a lasting impact.",
             image: "/images/services/videography.jpg",
             points: ["Promotional Videos",
                 "Product Videos",
@@ -38,7 +38,7 @@ export default function ServicesSection() {
         {
             id: 4,
             title: "PHOTOGRAPHY SERVICES ",
-            description: "Our digital marketing strategies help businesses grow their online presence. We offer SEO, content marketing, social media management, and PPC advertising services.",
+            description: "Capture every moment with precision and creativity. From corporate portraits to product showcases and event coverage, our photography services highlight your brand’s best angles with clarity and style.",
             image: "/images/services/IMAGES.jpg",
             points: ["Product Photography",
                 "Event Photography",
