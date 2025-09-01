@@ -34,7 +34,7 @@ export default function ContactPage() {
         <>
             <div className="min-h-screen flex justify-center items-center py-20 container-custom  bg-gradient-to-br">
                 <div className=" xl:max-w-7xl [@media(min-width:1440px)_and_(max-width:1535px)]:max-w-6xl lg:max-w-4xl w-full mx-auto mt-16 md:mt-20 lg:mt-0">
-                    <div className="text-center mb-12 pt-2 md:pt-12">
+                    <div className="text-center mb-14 ">
                         <h1 className="text-3xl md:text-5xl font-extrabold sm:text-5xl">
                             Contact Us
                         </h1>

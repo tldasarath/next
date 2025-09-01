@@ -249,7 +249,7 @@ const ServiceSection = () => {
               return (
                 <motion.div
                   key={service.id}
-                  className={`absolute ${isMobile ? 'w-72' : isLgScreen ? 'w-96' : 'w-80'} h-[26rem] md:h-[28rem] p-6 md:p-8 rounded-3xl shadow-2xl cursor-pointer ${position === 'center'
+                  className={`absolute ${isMobile ? 'w-72' : isLgScreen ? 'w-96' : 'w-96'} h-[26rem] md:h-[28rem] p-6 md:p-8 rounded-3xl shadow-2xl cursor-pointer ${position === 'center'
                       ? 'bg-black/60'
                       : 'bg-gray-800/90 backdrop-blur-sm'
                     } [@media(min-width:1440px)_and_(max-width:1535px)]:w-72 [@media(min-width:1024px)_and_(max-width:1200px)]:w-72`}

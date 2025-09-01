@@ -33,7 +33,7 @@ const ValuesSection = () => {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden container-custom">
+    <section className="relative py-20   overflow-hidden container-custom">
 
       {/* Heading */}
       <motion.div 
@@ -43,14 +43,14 @@ const ValuesSection = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white z-10">Our Values</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold  z-10">Our Values</h2>
       </motion.div>
 
       {/* Values Grid */}
-      <div className="w-full mx-auto flex flex-col gap-12 relative z-10">
+      <div className="w-full mx-auto flex flex-col   gap-12 relative z-10">
 
         {/* Top 3 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-16 justify-items-center">
           {values.slice(0,3).map((value,index) => (
             <motion.div
               key={index}

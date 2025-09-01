@@ -194,12 +194,12 @@ const AboutSection = () => {
         initial="hidden"
         animate={mainControls}
         exit="hidden"
-        className="relative"
+        className="relative "
       >
         <motion.h2
           variants={slideInVariants}
           transition={{ delay: 0.2 }}
-          className="text-3xl flex  custom-text2 md:text-6xl font-bold mb-16 absolute md:left-0 lg:left-6 xl:left-0 2xl:left-0"
+          className="text-2xl flex  custom-text2 md:text-6xl font-bold mb-16 absolute md:left-0  xl:left-0 2xl:left-0"
           style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
         >
           Welcome To <HighlightWord>Next</HighlightWord> Digital
@@ -215,7 +215,7 @@ const AboutSection = () => {
           className="mb-16 w-full max-w-5xl lg:pr-32 ml-auto"
         >
           <motion.div variants={fadeInVariants}>
-            <div className="space-y-8 text-lg lg:pl-7 xl:pr- xl:pl-0 lg:pt-16 xl:p">
+            <div className="space-y-8 text-lg  xl:pr- xl:pl-0 lg:pt-16 ">
               <motion.p
                 variants={fadeInVariants}
                 initial="hidden"
@@ -255,7 +255,7 @@ const AboutSection = () => {
         </motion.div>
 
         {/* Increased gap between cards from gap-8 to gap-16 */}
-        <div className="w-full max-w-6xl 2xl:max-w-6xl xl:max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-48 xl:gap-10 2xl:gap-48">
+        <div className="w-full   mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 xl:gap-10 2xl:gap-48">
           <motion.div
             variants={slideInVariants}
             initial="hidden"

@@ -5,14 +5,14 @@ import { useRef, useEffect, useState } from 'react';
 const ClientSections = () => {
   // Sample client data
   const clients = [
-    { id: 1, name: 'Microsoft', logo: '/images/our-clients/wide-range.jpg' },
-    { id: 2, name: 'Google', logo: '/images/our-clients/kozhicode restaurant.png' },
-    { id: 3, name: 'Amazon', logo: '/images/our-clients/shay al karam.png' },
-    { id: 4, name: 'Apple', logo: '/images/our-clients/emirates.png' },
-    { id: 5, name: 'Netflix', logo: '/images/our-clients/OIP.png' },
-    { id: 6, name: 'Facebook', logo: '/images/our-clients/ASCENTAM_LOGO_black-DGCKZOSi.png' },
-    { id: 7, name: 'Tesla', logo: '/images/our-clients/wide-range.jpg' },
-    { id: 8, name: 'Spotify', logo: '/images/our-clients/wide-range.jpg' },
+    { id: 1, name: 'wide-range', logo: '/images/our-clients/wide-range.jpg' },
+    { id: 2, name: 'kozhicode restaurant', logo: '/images/our-clients/kozhicode restaurant.png' },
+    { id: 3, name: 'shay al karam.', logo: '/images/our-clients/shay al karam.png' },
+    { id: 4, name: 'emirates', logo: '/images/our-clients/emirates.png' },
+    { id: 5, name: 'OIP', logo: '/images/our-clients/OIP.png' },
+    { id: 6, name: 'FaceASCENTAM_LOGO_black-DGCKZOSibook', logo: '/images/our-clients/ASCENTAM_LOGO_black-DGCKZOSi.png' },
+    { id: 7, name: 'wide-range', logo: '/images/our-clients/wide-range.jpg' },
+    { id: 8, name: 'wide-range', logo: '/images/our-clients/wide-range.jpg' },
   ];
 
   const duplicatedClients = [...clients, ...clients];
@@ -41,7 +41,7 @@ const ClientSections = () => {
 
   return (
     <section className="py-8 md:py-12 lg:py-16 overflow-hidden container-custom">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full mx-auto">
         <div className="text-center mb-8 md:mb-10 lg:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our Happy Clients</h2>
         </div>

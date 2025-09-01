@@ -170,7 +170,7 @@ const HeroSection = () => {
 
       {/* Floating planet animation - positioned below text on mobile */}
       <motion.div
-        className="relative  lg:absolute z-10 w-[600px] h-[550px] sm:w-[450px] sm:h-[450px] md:w-[750px] md:h-[750px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] mx-auto my-8 lg:my-0 right-50 md:right-10 lg:right-0 xl:right-0 2xl:right-56 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer order-2 lg:order-none"
+        className="relative  lg:absolute z-10 w-[600px] h-[550px] sm:w-[450px] sm:h-[450px] md:w-[750px] md:h-[750px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] 2xl:w-[800px] 2xl:h-[800px] mx-auto my-8 lg:my-0 right-50 md:right-10 lg:right-16 xl:right-20 2xl:right:0 lg:top-1/2 lg:transform lg:-translate-y-1/2 cursor-pointer order-2 lg:order-none"
         initial={{ opacity: 0, y: 100 }}
         animate={{ 
           opacity: 1,
